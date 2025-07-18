@@ -1,0 +1,67 @@
+.switcher {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  @include breakpoint-up($hover-screen) {
+    &:hover &__input:not(:disabled) ~ &__control {
+      box-shadow: 0 0 0 1px $prime inset;
+    }
+  }
+
+  &__input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transform: scale(0);
+    visibility: hidden;
+  }
+
+  &__control {
+    display: flex;
+    align-items: center;
+    padding: 0.7rem;
+    width: 3.6rem;
+    height: 2.2rem;
+    border-radius: 4rem;
+    background-color: $ui;
+    transition: $transition;
+    margin-right: 1.2rem;
+
+    &::after {
+      content: "";
+      width: 0.8rem;
+      height: 0.8rem;
+      border-radius: 50%;
+      background-color: $text;
+      transition: $transition;
+    }
+  }
+
+  &__input:disabled ~ &__control, 
+  &__input:disabled ~ &__label {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  &__input:disabled ~ &__control::after {
+    opacity: 0;
+  }
+
+  &__input:checked ~ &__control {
+    background-color: $prime;
+  }
+
+  &__input:checked ~ &__control::after {
+    transform: translateX(200%);
+  }
+
+  &__label {
+    font-size: 1.2rem;
+    line-height: 1;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+}

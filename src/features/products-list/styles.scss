@@ -1,0 +1,30 @@
+.products-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+  gap: 1.6rem 2.4rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  width: 100%;
+  
+  margin-bottom: -1.6rem;
+  overflow: hidden;
+
+  @include breakpoint-down($lg) {
+    
+    gap: 2.4rem 1.6rem;
+  }
+
+  @include breakpoint-down($md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &__item {
+    padding-bottom: 1.6rem;
+    border-bottom: 1px solid $black-100;
+
+    @include breakpoint-down($lg) {
+      padding-bottom: 3.4rem;
+    }
+  }
+}

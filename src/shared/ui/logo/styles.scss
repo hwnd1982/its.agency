@@ -1,0 +1,14 @@
+.logo {
+  & .icon {
+    display: block;
+    width: 13rem;
+    height: 2.6rem;
+    color: currentColor;
+    overflow: visible;
+
+    @include breakpoint-down($lg) {
+      width: 10rem;
+      height: 2.2rem;
+    }
+  }
+}

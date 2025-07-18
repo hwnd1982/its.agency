@@ -1,0 +1,37 @@
+<header class="header js-header" data-fixed-block>
+  <div class="container header__container">
+    <div class="header__inner">
+      {% include "@ui/burger/template.twig" with {} %}
+      {% include "@ui/logo/template.twig" %}
+      <div class="header__content-wrapper js-content-wrapper">
+        <div class="header__menu js-modal-content" data-target-id="mobile-menu">
+          {% include "@ui/nav/template.twig" with { classNames: "header__nav"} %}
+          <div class="header__call">
+            <div class="header__colunm">
+              <a href="tel:+74952217769" class="header__link">+7 (495) 221-77-69</a>
+              <button type="button" class="header__callback js-modal-trigger">Заказать звонок</button>
+            </div>
+          </div>
+          <div class="header__tools">
+            {%
+              include "@ui/button-icon/template.twig" with {
+              link: "search",
+              }
+            %}
+            {%
+              include "@ui/button-icon/template.twig" with {
+              link: "profile",
+              }
+            %}
+            {%
+              include "@ui/button-icon/template.twig" with {
+              link: "heart",
+              }
+            %}
+          </div>
+        </div>
+      </div>
+      <button class="header__cart js-modal-trigger js-cart-count" data-modal-id="cart-modal" type="button"></button>
+    </div>
+  </div>
+</header>

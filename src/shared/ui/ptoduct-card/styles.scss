@@ -1,0 +1,261 @@
+.product-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-width: 27.8rem;
+  z-index: 1;
+
+  @include breakpoint-up($hover-screen) {
+    &:hover & {
+      &__paint {
+        opacity: 0;
+        transform: scale(0.5);
+      }
+
+      &__interrar {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__images {
+    position: relative;
+    border-radius: .8rem;
+    max-width: 27.8rem;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    z-index: 1;
+    margin-bottom: 1.6rem;
+  }
+
+  &__paint {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+    z-index: -1;
+    opacity: 1;
+    transition: $transition;
+  }
+
+  &__interrar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    // mix-blend-mode: multiply;
+    z-index: -2;
+    opacity: 0;
+    transition: $transition;
+  }
+
+  &__name {
+    font-weight: 300;
+    line-height: .8;
+    margin: 0 0 1.6rem;
+    @include ellipsis(3);
+
+    @include breakpoint-down($lg) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__link {
+    font-size: 1.6rem;
+    letter-spacing: .02em;
+    text-decoration: none;
+    color: $text;
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+
+    @include breakpoint-down($lg) {
+      align-items: flex-end;
+    }
+  }
+
+  &__prices {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+
+    @include breakpoint-down($lg) {
+      gap: 0;
+      flex-direction: column-reverse;
+    }
+  }
+  
+  &__price {
+    margin: 0;
+    white-space: nowrap;
+    line-height: 1;
+
+    &:first-child {        
+      font-weight: 600;
+      font-size: 1.6rem;
+
+      @include breakpoint-down($lg) {
+        
+      }
+    }
+    
+    & + & {
+      font-weight: 300;
+      font-size: 1.2rem;
+      padding: 0 1%;
+      color: $text-700;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 11' fill='none' preserveAspectRatio='none'%3E%3Cpath d='M-4 12L12 2' stroke='%237BB899'/%3E%3C/svg%3E%0A");
+    }
+  }
+}
+
+.product-card-controls {
+  position: relative;
+  display: flex;
+  border-radius: .8rem;
+  overflow: hidden;
+
+  &__inc , &__on-road {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3.2rem;
+    width: 8rem;
+    border: none;
+    border-radius: .8rem;
+    background-color: $prime;
+    opacity: 0;
+    pointer-events: none;
+
+    @include breakpoint-down($md) {
+      width: 4rem;
+      height: 2.4rem;
+      border-radius: .6rem;
+      background-color: $ui;
+    }
+  }
+
+  &__inc {
+    box-shadow: 0 0 0 1px $prime inset;
+    cursor: pointer;
+
+    @include hover {
+      background-color: $light;
+    }
+
+    @include breakpoint-down($lg) {
+      opacity: 1;
+      box-shadow: none;
+      transition: $transition;
+      pointer-events: all;
+    }
+
+    ._cart & {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .icon {
+      width: 2rem;
+      height: 2rem;
+
+      @include breakpoint-down($lg) {
+        width: 1.6rem;
+        height: 1.6rem;
+      }
+    }
+  }
+
+  &__cart {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: .8rem;
+    border: none;
+    padding: 0 0.8rem;
+    background-color: $prime;
+    transform: translateX(105%);
+    box-shadow: 0 0 0 1px $prime inset;
+    
+    @include hover {
+      background-color: $light;
+    }
+
+    @include breakpoint-up($lg) {
+      &:hover & {
+        &-count {
+          background-color: $prime;
+        }
+      }
+    }
+
+    @include breakpoint-down($lg) {
+      transition: $transition;
+    }
+
+    &-count {
+      display: none;
+
+      @include breakpoint-up($md) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 2.4rem;
+        height: 2.4rem;
+        border-radius: 4rem;
+        background-color: $light;
+        transition: $transition;
+      }
+    }
+
+    ._cart & {
+      transform: translateX(0);
+    }
+  }
+
+  &__on-road {
+    opacity: 0;
+    transition: $transition;
+
+    @include breakpoint-down($lg) {
+      opacity: .6;
+    }
+  }
+}
+
+
+@include breakpoint-up($hover-screen) {
+  .product-card:hover .product-card-controls {
+    &__inc , &__cart  {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    &__on-road {
+      opacity: 0.6;
+    }
+  }
+}
+

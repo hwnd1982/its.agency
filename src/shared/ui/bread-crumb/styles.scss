@@ -1,0 +1,53 @@
+.bread-crumb {
+  padding-top: 13.6rem;
+  overflow: hidden;
+  z-index: 5;
+
+  @include breakpoint-down($lg) {
+    padding-top: 9.6rem;
+  }
+
+  &__wrapper {
+    overflow: visible;
+  }
+
+  &__list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  
+  &__item, &__item.swiper-slide {
+    display: flex;
+    align-items: center;
+    max-width: max-content;
+    color: $bread-crumb;
+
+    &:not(:last-child) {
+      &::after {
+        content: "";
+        flex-shrink: 0;
+        margin: 0 .8rem;
+        width: 0.4rem;
+        height: 0.4rem;
+        border-radius: 50%;
+        background-color: $bread-crumb;
+      }
+    }
+  }
+
+  &__link {
+    color: $bread-crumb;
+    text-decoration: none;
+    max-width: max-content;    
+    font-size: 1rem;
+    line-height: 1;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  &__item:last-child > &__link {
+    pointer-events: none;
+  }
+}

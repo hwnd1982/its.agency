@@ -1,0 +1,28 @@
+{% set cartModalContent %}
+<div class="cart-modal__inner">
+  <div class="cart-modal__content">
+    <div class="cart-modal__header">
+      <p class="cart-modal__count js-cart-count"></p>
+      <button type="button" class="cart-modal__reset js-cart-reset">очистить список</button>
+    </div>
+    <ul class="cart-modal__list js-cart-list"></ul>
+    <p class="cart-modal__empty">Вы забыли добавить товар в корзину...</p>
+  </div>
+  <div class="cart-modal__footer">
+    <p class="cart-modal__total">
+      <span class="cart-modal__total-label">Итого</span>
+      <span class="cart-modal__total-value js-cart-total-cost"></span>
+    </p>
+    <button type="button" class="cart-modal__checkout js-cart-checkout">Оформить заказ</button>
+  </div>
+</div>
+{% endset %}
+
+{%
+  include "@features/modal/template.twig" with {
+  id: "cart-modal",
+  title: "Корзина",
+  classNames: "cart-modal",
+  content: cartModalContent
+  }
+%}

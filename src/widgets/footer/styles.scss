@@ -1,0 +1,20 @@
+.footer {
+  padding: 3.2rem 0;
+  background-color: $black;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 30rem;
+    
+    @include breakpoint-down($lg) {
+      min-height: 16rem;
+    }
+  }
+  
+
+  & .logo {
+    color: $light;
+  }
+}

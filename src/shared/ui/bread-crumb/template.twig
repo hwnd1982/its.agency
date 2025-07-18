@@ -1,0 +1,23 @@
+{% set items = items is iterable ? items|default([]) : [] %}
+{% set base = { text: "Главная", href: "/" } %}
+{% set breadcrumbs = [base]|merge(items) %}
+
+{% if breadcrumbs|length > 1 %}
+  <div class="bread-crumb">
+    <div class="container">
+      <nav class="bread-crumb__wrapper swiper js-swiper-overflow">
+        <ul class="bread-crumb__list swiper-wrapper">
+          {% for item in breadcrumbs %}
+            {% if item.text is defined and item.href is defined %}
+              <li class="bread-crumb__item swiper-slide">
+                <a class="bread-crumb__link" href="{{ item.href }}">
+                  {{ item.text }}
+                </a>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </nav>
+    </div>
+  </div>
+{% endif %}

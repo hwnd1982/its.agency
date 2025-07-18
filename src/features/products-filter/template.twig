@@ -1,0 +1,49 @@
+{%
+  set filteItems = [
+  {
+  name: "is_new",
+  label: "Новинки",
+  },
+  {
+  name: "in_stock",
+  label: "Есть в наличии",
+  },
+  {
+  name: "is_contract",
+  label: "Контрактные",
+  },
+  {
+  name: "is_exclusive",
+  label: "Эксклюзивные",
+  },
+  {
+  name: "is_sale",
+  label: "Распродажа",
+  },
+  ]
+%}
+
+<form
+  novalidate
+  action="#"
+  class="products-filter js-products-filter js-modal-content"
+  data-target-id="products-filter"
+>
+  <fieldset class="products-filter__fieldset js-filter-fieldset">
+    <input class="products-filter__hidden" id="sort-price_desc" type="radio" name="sort" value="price_desc" checked>
+    <input class="products-filter__hidden" id="sort-price_asc" type="radio" name="sort" value="price_asc">
+    <input class="products-filter__hidden" id="sort-popular" type="radio" name="sort" value="popular">
+    <input class="products-filter__hidden" id="sort-new" type="radio" name="sort" value="new">
+
+    {% for item in filteItems %}
+      {%
+        include "@ui/switcher/template.twig" with {
+        name: item.name,
+        value: true,
+        label: item.label,
+        attributes: 'id="filter-' ~ item.name ~ '"',
+        }
+      %}
+    {% endfor %}
+  </fieldset>
+</form>

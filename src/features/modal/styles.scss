@@ -1,0 +1,126 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition:
+    all $transition 0s,
+    z-index 0s $transition-duration;
+  pointer-events: none;
+  opacity: 0;
+  z-index: -1050;
+  background-color: $black-700;
+
+  &:not(._init) {
+    opacity: 0;
+  }
+
+  &._active {
+    z-index: 1050;
+    opacity: 1;
+    pointer-events: all;
+    transition-delay: 0s, 0s;
+  }
+
+  &:not(._active) {
+    * {
+      pointer-events: none !important;
+    }
+  }
+
+  &__wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 1.5rem;
+    overflow: hidden;
+    text-align: center;
+
+    &:before {
+      content: "";
+      margin-right: -1.2rem;
+      width: 0;
+      height: 100%;
+      display: inline-block;
+      font-size: 0;
+      vertical-align: middle;
+    }
+
+    @include breakpoint-down($lg) {
+      padding: 0;
+    }
+  }
+
+  &__window {
+    position: relative;
+    padding: 2.4rem;
+    width: 100%;
+    max-width: 60rem;
+    display: inline-flex;
+    flex-direction: column;
+    text-align: left;
+    vertical-align: middle;
+    background-color: $light;
+    z-index: 1;
+
+    @include breakpoint-down($lg) {
+      padding: 2.8rem 2rem 4rem;
+      border-radius: 2.2rem 2.2rem 0 0;
+      vertical-align: bottom;
+      margin-right: -0.8rem;
+    }
+  }
+
+  @include breakpoint-down($lg) {
+    &._mobile &__window {
+      transform: translateY(100%);
+      transition: $transition;
+    }
+    
+
+    &._mobile._active &__window {
+      transform: translateY(0);
+    }
+  }
+
+  &__title {
+    font-weight: 500;
+    font-size: 3rem;
+    line-height: .88;
+    letter-spacing: -0.04em;
+    margin: 0 0 2.4rem;
+  }
+
+  &__close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    width: 4.8rem;
+    height: 4.8rem;
+    border-radius: 50%;
+    border: 1px solid $black-100;
+    z-index: 5;
+
+    @include hover {
+      background-color: $prime;
+    }
+
+    @include breakpoint-down($lg) {
+      display: none;
+    }
+
+    & > .icon {
+      width: 2.4rem;
+      height: 2.4rem;
+      color: $black;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+  }
+}

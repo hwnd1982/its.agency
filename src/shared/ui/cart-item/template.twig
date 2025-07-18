@@ -1,0 +1,74 @@
+{%
+  set cartItemProps = {
+  id: "",
+  name: "",
+  image_paint: "",
+  price: "",
+  quantity: "",
+  is_deleted: 0,
+  }
+%}
+
+{% set cartItem = cartItem ? cartItemProps|merge(cartItem) : cartItemProps %}
+
+{% set baseClasses = ['cart-item', 'js-cart-item'] %}
+{%
+  set normalizedClassNames = classNames is defined and classNames
+  ? (classNames is iterable ? classNames : classNames|split(' '))
+  : []
+%}
+{% set allClasses = baseClasses|merge(normalizedClassNames) %}
+
+<li class="{{ allClasses|join(" ") }}" ="{{cartItem.id}}">
+  <div class="cart-item__image">
+    <picture>
+      <img width="278" height="278" src="{{cartItem.image_paint}}" alt="{{ cartItem.name }}" class="cart-item__paint">
+    </picture>
+  </div>
+  <div class="cart-item__info">
+    <p class="cart-item__name">{{ cartItem.name }}</p>
+    <p class="cart-item__price">{{ cartItem.price }}</p>
+  </div>
+
+  <div class="cart-item__controls">
+    <div class="cart-item__quantity">
+      <button type="button" class="cart-item__quantity-btn js-dec">
+        {%
+          include "@ui/icon/template.twig" with {
+          link: "inc",
+          classNames: "_fill-none",
+          }
+        %}
+      </button>
+      <span class="cart-item__quantity-value js-count"></span>
+      <button type="button" class="cart-item__quantity-btn js-inc">
+        {%
+          include "@ui/icon/template.twig" with {
+          link: "inc",
+          classNames: "_fill-none",
+          }
+        %}
+      </button>
+    </div>
+
+    {% if cartItem.is_deleted == 0 %}
+      <button type="button" class="cart-item__restore">
+        {%
+          include "@ui/icon/template.twig" with {
+          link: "restore",
+          classNames: "_fill-none",
+          }
+        %}
+      </button>
+    {% else %}
+      <button type="button" class="cart-item__remove">
+        {%
+          include "@ui/icon/template.twig" with {
+          link: "cross",
+          classNames: "_fill-none",
+          }
+        %}
+      </button>
+    {% endif %}
+  </div>
+</li>

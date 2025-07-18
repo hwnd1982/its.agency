@@ -1,0 +1,53 @@
+.button-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: .4rem;
+  border: none;;
+  text-decoration: none;
+  width: 2.4rem;
+  height: 2.4rem;
+  background-color: $transp;
+
+  &:disabled {
+    opacity: 0.7;
+    pointer-events: none;
+  }
+
+  &._clean {
+    
+
+  }
+
+  &._outline {
+    background-color: $transp;
+    color: $text;
+    box-shadow: 0 0 0 1.5px $transp inset;
+  }
+
+  &._prime {
+    background-color: $prime;
+    color: $light;
+    box-shadow: 0 0 0 1.5px $prime inset;
+
+    @include hover {
+      background-color: $light;
+      color: $prime;
+    }
+  }
+
+  &._light {
+    background-color: $light;
+    color: $dark;
+    box-shadow: 0 0 0 1.5px $light inset;
+
+    @include hover {
+      background-color: $prime;
+      color: $light;
+    }
+  }
+
+  & > .icon {
+    flex-shrink: 0;
+  }
+}

@@ -1,0 +1,23 @@
+.modal-touch-handler {
+  display: none;
+
+  @include breakpoint-down($lg) {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.2rem;
+
+    &::after {
+      content: "";
+      height: 0.4rem;
+      width: 2.8rem;
+      border-radius: 4rem;
+      background-color: $text;
+      opacity: 0.6;
+    }
+  }
+}

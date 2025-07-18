@@ -1,0 +1,47 @@
+<section class="welcome">
+  <div class="welcome__wrapper">
+    <div class="welcome__inner swiper js-welcome-slider">
+      <div class="swiper-wrapper">
+        {% for index in 1..6 %}
+          <div class="swiper-slide welcome__slide">
+            <picture>
+              <img class="welcome__img lazy" src="assets/images/slide-0{{index}}.jpg" alt="">
+            </picture>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="swiper-navigation">
+        <div class="container">
+          <div class="swiper-navigation__inner">
+            <button type="button" class="swiper-navigation__button _prev js-prev">
+              {%
+                include "@ui/icon/template.twig" with {
+                link: "arrow-left",
+                width: 80,
+                height: 80,
+                classNames: "_fill-none",
+                }
+              %}
+            </button>
+            <button type="button" class="swiper-navigation__button _next js-next">
+              {%
+                include "@ui/icon/template.twig" with {
+                link: "arrow-right",
+                width: 80,
+                height: 80,
+                classNames: "_fill-none",
+                }
+              %}
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <div class="welcome__content">
+      <h1 class="welcome__title">Краски</h1>
+      <p class="welcome__text">Идеально подходят для стен и других поверхностей. Найди свой идеальный цвет!</p>
+    </div>
+  </div>
+</section>

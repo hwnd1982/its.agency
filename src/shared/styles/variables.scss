@@ -1,0 +1,28 @@
+@use "mixins" as *;
+
+$prime: #7BB899;
+$prime-600: #7BB89999;
+$text: #1F2020;
+$text-300: #1F20204C;
+$text-700: #1F2020B2;
+$dark: #202020;
+$black: #000000;
+$black-100: #00000019;
+$black-400: #00000066;
+$black-700: #000000B2;
+$light: #ffffff;
+$light-200: #ffffff33;
+$light-600: #ffffff99;
+$light-900: #ffffffE5;
+$ui: #F2F2F2;
+$bread-crumb: #C4C4C4; 
+$transp: #fff0;
+
+$transition: .4s ease-in-out;
+$transition-duration: .4s;
+
+$xl: 1440px;
+$lg: 1024px;
+$md: 768px;
+$sm: 568px;
+$xs: 390px;

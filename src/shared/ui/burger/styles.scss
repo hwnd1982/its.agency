@@ -1,0 +1,58 @@
+.burger.button-icon {
+  padding: 0;
+
+  @include breakpoint-up($lg) {
+    pointer-events: none;
+  }
+
+  @include breakpoint-down($lg) {
+    pointer-events: all;
+  }
+
+  & > .icon {
+    width: 4.4rem;
+    height: 4.4rem;
+    margin: -.4rem;
+    stroke: currentColor;
+    fill: none;
+
+    & > .line {
+      stroke-width: 2;
+      transition: stroke-dasharray $hover-transition, stroke-dashoffset $hover-transition;
+
+      &._top {
+        stroke-dasharray: 24 200;
+      }
+
+      &._middle {
+        stroke-dasharray: 24 200;
+      }
+
+      &._bottom {
+        stroke-dasharray: 24 200;
+      }
+    }
+  }
+
+  &._open {
+    pointer-events: none;
+    
+    & > .icon {
+      & > .line {
+        &._top {
+          stroke-dasharray: 32 200;
+          stroke-dashoffset: -110;
+        }
+
+        &._middle {
+          stroke-dashoffset: -38;
+        }
+
+        &._bottom {
+          stroke-dasharray: 32 200;
+          stroke-dashoffset: -110;
+        }
+      }
+    }
+  }
+}

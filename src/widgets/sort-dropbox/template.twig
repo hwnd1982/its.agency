@@ -1,0 +1,16 @@
+{% set sortContent %}
+<div class="sort-dropbox__content">
+  <label class="sort-dropbox__item _active js-sort-option" class="" for="sort-price_desc">Сначала дорогие</label>
+  <label class="sort-dropbox__item js-sort-option" for="sort-price_asc">Сначала недорогие</label>
+  <label class="sort-dropbox__item js-sort-option" for="sort-popular">Сначала популярные</label>
+  <label class="sort-dropbox__item js-sort-option" for="sort-new">Сначала новые</label>
+</div>
+{% endset %}
+
+{%
+  include "@features/dropbox-modal/template.twig" with {
+  id: "sort-dropbox",
+  classNames: "sort-dropbox",
+  content: sortContent
+  }
+%}

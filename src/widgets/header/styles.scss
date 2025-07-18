@@ -1,0 +1,184 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 3.6rem 0;
+  z-index: 99;
+  background-color: $light;
+  transition: all $transition, padding 0s, z-index 0s $transition-duration;
+  
+
+  @include breakpoint-down($lg) {
+    padding: 2rem 0;
+  }
+
+  &._show {
+    z-index: 1060;
+    transition: all $transition, padding 0s, z-index 0s;
+  }
+
+  &._scroll {
+    box-shadow: .2rem .2rem 1rem 1rem $text-300;
+
+    @include breakpoint-up($lg) {
+      background-color: $light-900;
+      transform: translateY(-3.2rem);
+    }
+  }
+  
+  &__inner {
+    display: grid;
+    grid-template-columns: 28rem 1fr  max-content;
+    gap: 2.4rem;
+    align-items: center;
+    transition: $transition;
+
+    @include breakpoint-down($xl) {
+      grid-template-columns: 18rem 1fr  max-content;
+    }
+
+    @include breakpoint-down($lg) {
+      grid-template-columns: max-content 1fr  max-content;
+    }
+  }
+
+  ._scroll &__inner {
+    @include breakpoint-up($lg) {
+      transform: translateY(1.6rem);
+    }
+  }
+
+  &__burger.burger {
+    position: relative;
+    z-index: 1;
+
+    @include breakpoint-up($lg) {
+      display: none;
+    }
+  }
+
+  &__logo {
+    @include breakpoint-down($lg) {
+      justify-self: center;
+    }
+  }
+
+  &__content-wrapper {
+    @include breakpoint-down($lg) {
+      display: none;
+    }
+  }
+
+  &__menu {
+    display: grid;
+    grid-template-columns: max-content 1fr  28rem;
+    gap: 2.4rem;
+
+    @include breakpoint-down($xl) {
+      grid-template-columns: max-content 1fr  18rem;
+    }
+
+    @include breakpoint-down($lg) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: max-content;
+      grid-auto-rows: 1fr;
+    }
+  }
+
+  &__nav {
+    align-self: center;
+
+    @include breakpoint-down($lg) {
+      grid-row: span 2;
+    }
+  }
+
+  &__call {
+    display: flex;
+    justify-content: flex-end;
+    align-self: center;
+    gap: 0.2rem;
+  }
+
+  &__link {
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    text-decoration: none;
+    color: $text;
+
+    @include hover {
+      color: $prime;
+    }
+  }
+
+  &__callback {
+    font-size: 1.4rem;
+    line-height: 1;
+    border: none;
+    background-color: $transp;
+    padding: 0;
+    color: $text-300;
+
+    @include hover {
+      color: $prime;
+    }
+  }
+
+  &__colunm {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+  }
+
+  &__tools {
+    display: flex;
+    align-items: center;
+    align-self: center;
+    gap: 2.4rem;
+    max-width: 24rem;
+    justify-self: end;
+
+    @include breakpoint-down($lg) {
+      align-self: start;
+      justify-self: end;
+    }
+
+    .button-icon {
+      @include hover {
+        transform: scale(1.15);
+      }
+    }
+  }
+    
+
+  &__cart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-width: 2.4rem;
+    height: 2.4rem;
+    font-weight: 500;
+    font-size: 1.2rem;
+    line-height: 1;
+    border-radius: 4rem;
+    background-color: $prime;
+    box-shadow: 0 0 0 1px $prime inset;
+    border: none;
+
+    @include hover {
+      background-color: $light;
+    }
+
+    @include breakpoint-down($lg) {
+      pointer-events: none;
+    }
+
+    @include breakpoint-down($lg) {
+      pointer-events: all;
+    }
+  }
+}

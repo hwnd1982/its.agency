@@ -1,0 +1,11 @@
+{% set modalContent %}
+<div class="mobile-content-modal__inner js-content-wrapper"></div>
+{% endset %}
+
+{%
+  include "@features/modal/template.twig" with {
+  id: "mobile-content-modal",
+  classNames: "mobile-content-modal",
+  content: modalContent,
+  } only
+%}

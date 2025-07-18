@@ -1,0 +1,73 @@
+{%
+  set productProps = {
+  id: "",
+  name: "",
+  image_paint: "",
+  image_interior: "",
+  color: "",
+  price: "",
+  regular_price: "",
+  in_cart: "",
+  quantity: ""
+  }
+%}
+
+{% set product = product ? productProps|merge(product) : productProps %}
+
+{% set baseClasses = ['product-card'] %}
+{%
+  set normalizedClassNames = classNames is defined and classNames
+  ? (classNames is iterable ? classNames : classNames|split(' '))
+  : []
+%}
+{% set allClasses = baseClasses|merge(normalizedClassNames) %}
+
+{% set controlsContent %}
+{% if product.quantity > 0 %}
+  <div class="product-card__controls">
+    <button type="button" class="product-card-controls__inc js-inc">
+      <svg class="icon _fill-none" width="24" height="24">
+        <use xlink:href="#inc"></use>
+      </svg></button
+    ><button type="button" class="product-card-controls__cart js-modal-trigger" data-model-id="cart-modal">
+      <span class="product-card-controls__cart-count">{{ product.in_cart }}</span>
+      <svg class="icon _fill-none" width="24" height="24">
+        <use xlink:href="#cart"></use>
+      </svg>
+    </button>
+  </div>
+{% else %}
+  <span class="product-card-controls__on-road">
+    <svg class="icon _fill-none" width="24" height="24">
+      <use xlink:href="#on-road"></use>
+    </svg>
+  </span>
+{% endif %}
+{% endset %}
+
+<article class="{{ allClasses|join(" ") }}">
+  <div class="product-card__images">
+    <picture>
+      <img width="278" height="278" src="{{product.image_paint}}" alt="{{ name }}" class="product-card__paint">
+    </picture>
+    <picture>
+      <img
+        width="278"
+        height="278"
+        src="{{ product.image_interior }}"
+        alt="{{ product.name }}"
+        class="product-card__interrar"
+        style="background-color: {{ product.color }}"
+    ></picture>
+  </div>
+  <h2 class="product-card__name">
+    <a href="#{{ product.id }}" class="product-card__link">{{ product.name }}</a>
+  </h2>
+  <div class="product-card__footer">
+    <div class="product-card__prices">
+      <p class="product-card__price">{{ product.price }}</p>
+      {{ product.regular_price ? '<p class="product-card__price">' ~ product.regular_price ~ "</p>": "" }}
+    </div>
+    {{ controlsContent }}
+  </div>
+</article>

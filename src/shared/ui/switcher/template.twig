@@ -1,0 +1,28 @@
+{% set type = type ?: 'checkbox' %}
+{% set name = name ?: '' %}
+{% set value = value ?: name %}
+{% set label = label ?: '' %}
+{% set disabled = disabled ?: false %}
+{% set attributes = attributes ?: "" %}
+
+{% set baseClasses = ['switcher'] %}
+{%
+  set normalizedClassNames = classNames is defined and classNames
+  ? (classNames is iterable ? classNames : classNames|split(' '))
+  : []
+%}
+{% set allClasses = baseClasses|merge(normalizedClassNames) %}
+
+<label class="{{ allClasses|join(" ") }}">
+  <input
+    class="switcher__input"
+    {{ "type=" ~ type }}
+    {{ "name=" ~ name }}
+    {{ "value=" ~ value }}
+    {{ attributes }}
+  >
+  <span class="switcher__control"></span>
+  {% if label %}
+    <span class="switcher__label">{{ label }}</span>
+  {% endif %}
+</label>

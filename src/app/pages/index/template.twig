@@ -1,0 +1,22 @@
+{% block classNameMain %}main{% endblock %}
+
+{% extends '@layouts/base.twig' %}
+
+{% block title %}Краски{% endblock %}
+
+{% block breadCrumb %}
+{%
+  include "@ui/bread-crumb/template.twig" with {
+  items: [{ text: "Продукты", href: "#", }, { text: "Краски", href: "#", }],
+  } only
+%}
+{% endblock %}
+
+{% block content %}
+{% include "@widgets/welcome/template.twig" %}
+{% include "@widgets/products/template.twig" %}
+{% endblock %}
+
+{% block modals %}
+{% include "@widgets/sort-dropbox/template.twig" %}
+{% endblock %}

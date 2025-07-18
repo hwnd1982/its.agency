@@ -1,0 +1,62 @@
+<svg
+  viewBox="0 0 24 24"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M15.7188 15L15.7187 6L5.5 6L5.5 15H7.5"
+    stroke="currentColor"
+    stroke-width="0.75"
+    stroke-linecap="round"
+  />
+  <path
+    d="M20.5 15H21C21 15 21.2084 15.0372 21.38 14.9C21.5515 14.7627 21.5 14.375 21.5 14.375V13.75V12.5L20.25 10.5L19.625 9.5L19.3124 8.5C19.3124 8.5 19.1436 8.77471 18.95 8.65C18.7038 8.49137 18.25 8.5 18.25 8.5H17.5H16"
+    stroke="currentColor"
+    stroke-width="0.75"
+    stroke-linecap="round"
+  />
+  <path
+    d="M2.25 10.4H4.25"
+    stroke="currentColor"
+    stroke-width="0.75"
+    stroke-linecap="round"
+  />
+  <path
+    d="M2.25 13H4.25"
+    stroke="currentColor"
+    stroke-width="0.75"
+    stroke-linecap="round"
+  />
+  <path
+    d="M2.25 7.7H4.25"
+    stroke="currentColor"
+    stroke-width="0.75"
+    stroke-linecap="round"
+  />
+  <path
+    d="M11.8 15L16.3 15"
+    stroke="currentColor"
+    stroke-width="0.75"
+    stroke-linecap="round"
+  />
+  <circle
+    cx="9.75"
+    cy="16.25"
+    r="1.375"
+    stroke="currentColor"
+    stroke-width="0.75"
+  />
+  <circle
+    cx="18.25"
+    cy="16.25"
+    r="1.375"
+    stroke="currentColor"
+    stroke-width="0.75"
+  />
+  <path
+    d="M2.25 10.4H4.25"
+    stroke="currentColor"
+    stroke-width="0.75"
+    stroke-linecap="round"
+  />
+</svg>

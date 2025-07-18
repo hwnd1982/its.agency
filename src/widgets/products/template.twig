@@ -1,0 +1,24 @@
+<section class="products">
+  <div class="container products__container">
+    <aside class="products__aside js-products-aside js-content-wrapper">
+      {% include "@features/products-filter/template.twig" %}
+    </aside>
+    <div class="products__wrapper">
+      <div class="products__header">
+        <button
+          type="button"
+          class="products__mobile-filter-trigger js-modal-trigger"
+          data-modal-id="mobile-content-modal"
+          data-target-id="products-filter"
+        >
+          Фильтры
+        </button>
+        <p class="products__count js-products-count"></p>
+        <button type="button" class="products__sort js-modal-trigger" data-modal-id="sort-dropbox">
+          Сначала дорогие
+        </button>
+      </div>
+      {% include "@features/products-list/template.twig" %}
+    </div>
+  </div>
+</section>

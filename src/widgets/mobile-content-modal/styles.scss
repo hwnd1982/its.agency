@@ -1,0 +1,53 @@
+.modal._custom {
+    &__description {
+      font-size: 1.5rem;
+      line-height: 1.4;
+      font-weight: 400;
+      margin: 0;
+  
+      @include breakpoint-down($md) {
+        font-size: 1.4rem;
+      }
+  
+      &:not(:last-child) {
+        margin-bottom: 2.6rem;
+  
+        @include breakpoint-down($md) {
+          margin-bottom: 2rem;
+        }
+      }
+    }
+  
+    &__close {
+      top: 2.4rem;
+      right: 2.4rem;
+    }
+  
+    &__button {
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+    }
+  
+    &__text {
+      font-weight: 400;
+      font-size: 1.4rem;
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+      margin: -1rem 0 2.6rem;
+  
+      @include breakpoint-down($md) {
+        font-size: 1.2rem;
+        margin: -1rem 0 2rem;
+      }
+    }
+  
+    &__footer {
+      display: flex;
+      align-items: center;
+  
+      & > :not(:last-child) {
+        margin-right: 0.6rem;
+      }
+    }
+  }

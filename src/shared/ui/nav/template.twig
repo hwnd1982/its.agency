@@ -1,0 +1,42 @@
+{%
+  set links = [
+  {
+  href: "#product",
+  text: "Продукты",
+  },
+  {
+  href: "#",
+  text: "Цвета",
+  },
+  {
+  href: "#",
+  text: "Вдохновение",
+  },
+  {
+  href: "#",
+  text: "Советы",
+  },
+  {
+  href: "#",
+  text: "Найти магазин",
+  },
+  ]
+%}
+
+{% set baseClasses = ['nav'] %}
+{%
+  set normalizedClassNames = classNames is defined and classNames
+  ? (classNames is iterable ? classNames : classNames|split(' '))
+  : []
+%}
+{% set allClasses = baseClasses|merge(normalizedClassNames) %}
+
+<nav class="{{ allClasses|join(" ") }}">
+  <ul class="nav__list">
+    {% for link in links %}
+      <li class="nav__item">
+        <a href="{{link.href}}" class="nav__link js-smooth-scroll">{{ link.text }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</nav>
