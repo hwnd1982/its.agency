@@ -1,7 +1,7 @@
 import "./styles.scss";
 import "@features/modal";
 
-import { Modal, ModalElement } from "@features/modal";
+import { ModalElement } from "@features/modal";
 
 
 export class MobileContentModal {
@@ -27,6 +27,7 @@ export class MobileContentModal {
       this.contentWrapper.append(this.content);
       this.content = null;
       this.contentWrapper = null;
+      this.el.removeAttribute("data-target-id");
     }
   }
 
@@ -42,6 +43,7 @@ export class MobileContentModal {
       this.content = content;
       this.contentWrapper = content.parentElement;
       this.wrapper.append(content);
+      this.el.setAttribute("data-target-id", target);
     }
     
   }

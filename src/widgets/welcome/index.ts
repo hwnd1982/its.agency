@@ -9,7 +9,6 @@ import "@ui/icon";
 import "@icons/arrow-left.svg";
 import "@icons/arrow-right.svg";
 
-
 export function initWelcome() {
   const el = document.querySelector<HTMLDivElement>(".js-welcome-slider");
 
