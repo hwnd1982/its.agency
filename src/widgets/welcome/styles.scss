@@ -97,6 +97,10 @@
     object-fit: cover;
     object-position: left bottom;
     z-index: -1;
+
+    @include breakpoint-down($md) {
+      height: 100%;
+    }
   }
 
   .swiper-navigation {

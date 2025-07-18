@@ -20,9 +20,9 @@ export function initWelcome() {
       effect: "creative",
       loop: true,
       autoplay: {
-        delay: 4000,
+        delay: 5000,
       },
-      speed: 2000,
+      speed: 600,
       navigation: {
         prevEl,
         nextEl,
@@ -40,6 +40,11 @@ export function initWelcome() {
         next: {
           translate: ["100%", 0, 0],
         },
+      },
+      breakpoints: {
+        768.001: {
+          speed: 1000,
+        }
       },
       modules: [Navigation, EffectCreative, Autoplay, Pagination],
     });
