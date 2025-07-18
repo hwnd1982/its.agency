@@ -56,6 +56,7 @@
     max-width: 47.2rem;
     z-index: 1;
     color: $light;
+    pointer-events: none;
   }
 
   &__title {
